@@ -209,6 +209,10 @@
     <Compile Include="Migrations\201408072109409_initialSchema.Designer.cs">
       <DependentUpon>201408072109409_initialSchema.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201410161927431_addedNewPropertiesToUser.cs" />
+    <Compile Include="Migrations\201410161927431_addedNewPropertiesToUser.Designer.cs">
+      <DependentUpon>201410161927431_addedNewPropertiesToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -225,6 +229,7 @@
     <Content Include="app\scripts\disabledhelper\rcSubmit.js" />
     <Content Include="app\scripts\services.js" />
     <Content Include="app\views\Home.html" />
+    <Content Include="app\views\RegisterView.html" />
     <Content Include="app\views\RequireAuth.html" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
@@ -592,6 +597,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Views\Home\ThrowAway.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -606,6 +612,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201408072109409_initialSchema.resx">
       <DependentUpon>201408072109409_initialSchema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410161927431_addedNewPropertiesToUser.resx">
+      <DependentUpon>201410161927431_addedNewPropertiesToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

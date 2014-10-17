@@ -32,6 +32,14 @@ namespace AngularJSWithWebAPI
                 "~/Scripts/angular-ui/ui-bootstrap-tpls.js",
                 "~/Scripts/angular-ui/ui-utils.min.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/myangular").Include(
+                    "~/app/scripts/disabledhelper/rcSubmit.js",
+                    "~/app/scripts/disabledhelper/rcDisabled.js",
+                    "~/app/scripts/app.js",
+                    "~/app/scripts/services.js",
+                    "~/app/scripts/controllers.js"
+            ));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));

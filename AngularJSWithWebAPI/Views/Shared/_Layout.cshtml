@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title>{{title}}</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -38,13 +38,14 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/angular-bootstrap")
+    @Scripts.Render("~/bundles/myangular")
 
-    <script src="~/app/scripts/disabledhelper/rcSubmit.js"></script>
+    @*<script src="~/app/scripts/disabledhelper/rcSubmit.js"></script>
     <script src="~/app/scripts/disabledhelper/rcDisabled.js"></script>
 
     <script src="~/app/scripts/app.js"></script>
     <script src="~/app/scripts/services.js"></script>
-    <script src="~/app/scripts/controllers.js"></script>    
+    <script src="~/app/scripts/controllers.js"></script>*@    
 
     @RenderSection("scripts", required: false)
 </body>

@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-app.controller('HomeController', function ($scope, $location, LoginService, SessionHandler) {
+app.controller('HomeController', ['$scope', '$location', 'LoginService', 'SessionHandler', function ($scope, $location, LoginService, SessionHandler) {
 
     $scope.username = SessionHandler.sessionUser.username
     $scope.someCustomColumn = SessionHandler.sessionUser.someCustomColumn;
@@ -23,8 +23,20 @@ app.controller('HomeController', function ($scope, $location, LoginService, Sess
     $scope.isLoggedIn = function () {
         return SessionHandler.isLoggedIn();
     };
-});
+}]);
 
-app.controller('AuthController', function ($scope) {
+app.controller('AuthController', ['$scope', function ($scope) {
 
-});
+}]);
+
+app.controller('RegisterController', ['$scope', 'LoginService', function ($scope, LoginService) {
+    $scope.user = {};
+
+    $scope.register = function () {
+        return LoginService.register($scope.user).then(function () {
+
+        }, function (statuc) {
+
+        });
+    }
+}]);

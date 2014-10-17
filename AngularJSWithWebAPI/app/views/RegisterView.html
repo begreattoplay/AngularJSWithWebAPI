@@ -1,0 +1,53 @@
+﻿<form name="form" novalidate rc-submit="register()" rc-disabled="rc.form.submitInProgress">
+    <div class="form-horizontal">
+        <h4>Register new user</h4>
+
+        <div class="form-group">
+            <!--First Name-->
+            <label for="firstName" class="control-label col-md-2">First Name</label>
+            <div class="col-md-10">
+                <input type="text" id="firstName" name="firstName" ng-model="user.firstName" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <!--Last Name-->
+            <label for="lastName" class="control-label col-md-2">Last Name</label>
+            <div class="col-md-10">
+                <input type="text" id="lastName" name="lastName" ng-model="user.lastName" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <!--Email Address-->
+            <label for="email" class="control-label col-md-2">Email Address</label>
+            <div class="col-md-10">
+                <input type="text" id="email" name="email" ng-model="user.email" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <!--Profile Url-->
+            <label for="profileUrl" class="control-label col-md-2">Profile Url</label>
+            <div class="col-md-10">
+                <input type="text" id="profileUrl" name="profileUrl" ng-model="user.profileUrl" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <!--Password-->
+            <label for="password" class="control-label col-md-2">Password</label>
+            <div class="col-md-10">
+                <input type="password" id="password" name="password" ng-model="user.password" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <!--Confirm Password-->
+            <label for="confirmPass" class="control-label col-md-2">Confirm Password</label>
+            <div class="col-md-10">
+                <input type="password" id="confirmPass" name="confirmPass" ng-model="user.confirmPassword" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Register" class="btn btn-default" />
+            </div>
+        </div>
+</form>

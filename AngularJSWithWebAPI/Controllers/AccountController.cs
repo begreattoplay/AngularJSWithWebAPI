@@ -338,7 +338,7 @@ namespace AngularJSWithWebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, ProfileUrl = model.ProfileUrl };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 

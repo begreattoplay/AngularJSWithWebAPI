@@ -10,7 +10,7 @@ var app = angular.module('webApp', [
     'rcForm',
     'rcDisabledBootstrap'])
 
-app.config(function ($routeProvider, $httpProvider) {
+app.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
     $routeProvider.when('/', {
         templateUrl: '/app/views/Home.html',
         controller: 'HomeController',
@@ -22,14 +22,20 @@ app.config(function ($routeProvider, $httpProvider) {
         controller: 'AuthController',
         title: 'Auth Page'
     })
+    .when('/register', {
+        templateUrl: '/app/views/RegisterView.html',
+        controller: 'RegisterController',
+        title: 'Register',
+        allowAnon: true
+    })
     .otherwise({
         redirectTo: '/'
     });
 
     $httpProvider.interceptors.push('AuthInterceptor');
-});
+}]);
 
-app.run(function ($rootScope, SessionHandler, $location, $route) {
+app.run(['$rootScope', 'SessionHandler', '$location', '$route', function ($rootScope, SessionHandler, $location, $route) {
     $rootScope.$on('$routeChangeStart', function (event, next, current) {
         if ((next && next.$$route.allowAnon) ||
             SessionHandler.checkLoggedIn() && ($location.path() !== '' && $location.path() !== '/')) {
@@ -40,4 +46,4 @@ app.run(function ($rootScope, SessionHandler, $location, $route) {
     $rootScope.$on("$routeChangeSuccess", function (currentRoute, previousRoute) {
         $rootScope.title = $route.current.title;
     });
-});
+}]);

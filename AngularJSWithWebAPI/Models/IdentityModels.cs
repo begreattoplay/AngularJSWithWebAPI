@@ -10,6 +10,10 @@ namespace AngularJSWithWebAPI.Models
     public class ApplicationUser : IdentityUser
     {
         public string SomeCustomColumn { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string ProfileUrl { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -30,5 +34,7 @@ namespace AngularJSWithWebAPI.Models
         {
             return new ApplicationDbContext();
         }
+
+        //public System.Data.Entity.DbSet<AngularJSWithWebAPI.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

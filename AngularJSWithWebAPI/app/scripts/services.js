@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-app.factory('AuthInterceptor', function ($window, $q, $rootScope, $location) {
+app.factory('AuthInterceptor', ['$window', '$q', '$rootScope', '$location', function ($window, $q, $rootScope, $location) {
     return {
         request: function (config) {
             config.headers = config.headers || {};
@@ -19,10 +19,10 @@ app.factory('AuthInterceptor', function ($window, $q, $rootScope, $location) {
             return $q.reject(rejection);
         }
     };
-});
+}]);
 
 //LoginService
-app.factory('LoginService', function ($q, $http, SessionHandler) {
+app.factory('LoginService', ['$q', '$http', 'SessionHandler', function ($q, $http, SessionHandler) {
     var processLogin = function (username, password) {
         var deferred = $q.defer();
         $http({
@@ -45,29 +45,34 @@ app.factory('LoginService', function ($q, $http, SessionHandler) {
     };
 
     var processLogout = function () {
+        SessionHandler.logout();
+    };
+
+    var register = function (model) {
         var deferred = $q.defer();
         $http({
             method: 'POST',
-            url: '/api/Account/Logout',
-        }).success(function () {
-            SessionHandler.logout();
+            url: '/api/v1/Account/Register',
+            data: model
+        }).success(function (data, status) {
             deferred.resolve();
         }).error(function (data, status) {
-            deferred.reject(status);
+            deferred.reject();
         });
 
         return deferred.promise;
-    };
+    }
 
     return {
         processLogin: processLogin,
-        processLogout: processLogout
+        processLogout: processLogout,
+        register: register
     };
-});
+}]);
 
 
 //Session Handler
-app.factory('SessionHandler', function ($http, $location, $window, $q) {
+app.factory('SessionHandler', ['$http', '$location', '$window', '$q', function ($http, $location, $window, $q) {
     var setLoggedIn = function (data) {
         if (data === 'true') {
             s['auth'] = true;
@@ -168,4 +173,4 @@ app.factory('SessionHandler', function ($http, $location, $window, $q) {
         sessionUser: sessionUser,
         isLoggedIn: isLoggedIn
     };
-});
+}]);
